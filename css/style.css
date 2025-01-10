@@ -1,0 +1,52 @@
+@charest 'utf-8';
+
+/* main design */
+#main > section {
+    padding: 6rem 0;
+    border: 1px solid #000;
+}
+
+/* css 개별성 규칙 
+- id로 정의한 이름 사용(#) : 100점
+- class로 정의한 이름 사용 : 10점
+- 태그로 정의한 이름 사용 : 1점
+예: #portfolio .works-list .item h4 + p {} --> 122점
+점수가 높은 명령을 브라우저가 우선 해석
+*/
+
+.visual {
+    background: skyblue;
+    height: 46rem;
+    padding: 0 !important; /* !:important -> css 개별성 규칙 무력화(적용하고 싶은 명령 뒤에 !important) */
+    position: relative;
+}
+
+.visual::before {
+    content: '';
+    display: block;
+    height: 100%;
+    background: url(https://a.travel-assets.com/findyours-php/viewfinder/images/res70/348000/348798-Santiago-Bernabeu-Stadium.jpg)
+        no-repeat 0 0 / cover; /* cover 영역 가득채우기 */
+
+    /* 중앙정렬 */
+    position: absolute;
+    /* top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); */
+    top: 0;
+    left: 0;
+
+    width: 100%; /* posa를 주고나면 가로크기를 줘야나옴 */
+}
+
+.visual .inner {
+    position: relative;
+    height: 100%; /* 세로크기가 있어야 적용가능함 */
+}
+
+.visual-title {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%); /* trfty 세로기준 중앙 */
+}
