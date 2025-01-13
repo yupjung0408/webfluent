@@ -1,9 +1,9 @@
-@charest 'utf-8';
+@charset 'utf-8';
 
 /* main design */
 #main > section {
     padding: 6rem 0;
-    border: 1px solid #000;
+    /* border: 1px solid #000; */
 }
 
 /* css 개별성 규칙 
@@ -19,6 +19,7 @@
     height: 46rem;
     padding: 0 !important; /* !:important -> css 개별성 규칙 무력화(적용하고 싶은 명령 뒤에 !important) */
     position: relative;
+    overflow: hidden;
 }
 
 .visual::before {
@@ -31,12 +32,24 @@
     /* 중앙정렬 */
     position: absolute;
     /* top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%); */
+        left: 50%;
+        transform: translate(-50%, -50%); */
     top: 0;
     left: 0;
 
     width: 100%; /* posa를 주고나면 가로크기를 줘야나옴 */
+    animation: visual-ani 1s;
+}
+
+.visual::after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: var(--black70p);
+    width: 100%;
+    height: 100%;
 }
 
 .visual .inner {
@@ -49,4 +62,179 @@
     top: 50%;
     left: 0;
     transform: translateY(-50%); /* trfty 세로기준 중앙 */
+    z-index: 5;
+    width: 69rem;
+}
+
+.visual-title h2 {
+    font-weight: 700;
+    font-size: 4.8rem;
+    line-height: 1.2;
+    color: #fff;
+    text-transform: uppercase; /* ttu  */
+    animation: slide-right 0.5s 1s both;
+}
+
+.visual-title h2 strong {
+    color: var(--main-color);
+}
+
+.visual-title p {
+    font-weight: 500;
+    font-size: 2rem;
+    color: #fff;
+    margin-top: 2.4rem;
+    animation: slide-right 0.5s 1.3s both;
+}
+.visual-title a.cta {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20rem;
+    height: 4.8rem;
+    background: var(--main-color);
+    color: #fff;
+    font-weight: 700;
+    margin-top: 3.2rem;
+    animation: slide-right 0.5s 2s both;
+}
+
+@keyframes visual-ani {
+    /* from */
+    0% {
+        opacity: 0;
+        transform: scale(1.5);
+    }
+
+    /* to */
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes slide-right {
+    from {
+        transform: translateX(-50px); /* trftx */
+        opacity: 0;
+    }
+}
+
+.business-list {
+    display: flex;
+    gap: 2rem;
+}
+
+.business-list li {
+    width: 28rem;
+    min-height: 3.2rem;
+    padding: 2.8rem 3.2rem;
+    border: 1px solid var(--black20p);
+    box-shadow: 0 8px 0 rgba(0, 0, 0, 0.05); /* bxsh */
+}
+
+.business-list li dl dt {
+    font-weight: 700;
+    font-size: 2rem;
+    color: var(--main-color-dark);
+    line-height: 1.3;
+}
+
+.business-list li dl dt + dd {
+    margin-top: 2rem;
+}
+
+.business-list li dl dd {
+    font-weight: 500;
+}
+
+.sec-title {
+    font-weight: 500;
+    font-size: 3.2rem;
+    color: var(--main-color);
+}
+
+.sec-title + p {
+    font-weight: 500;
+    font-size: 2rem;
+    margin-top: 0.4rem;
+}
+
+.works-list {
+    margin-top: 2.8rem;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.works-list li {
+    width: 59rem;
+    height: 26rem;
+    position: relative;
+}
+
+.works-list li p {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* trft */
+    font-weight: 500;
+    font-size: 2.4rem;
+    color: #fff;
+    text-align: center;
+}
+
+.works-list li p strong {
+    font-weight: 700;
+    display: block;
+}
+
+.news-con {
+    display: flex;
+    justify-content: space-between;
+}
+
+.news-text {
+    /* border: 1px solid #000; */
+    width: 48rem;
+}
+
+.news-text h4 {
+    font-weight: 700;
+    font-size: 2.4rem;
+    color: var(--title-color);
+    margin-top: 1.8rem;
+}
+
+.news-text p {
+    margin-top: 1.8rem;
+}
+
+.news-con figure {
+    width: 64rem;
+}
+
+.column h4 {
+    font-weight: 500;
+    font-size: 2.8rem;
+    color: var(--main-color);
+}
+
+.column h5 {
+    font-weight: 700;
+    font-size: 3.2rem;
+    color: var(--title-color);
+    margin-top: 1.8rem;
+}
+
+.column p {
+    margin-top: 1.8rem;
+}
+
+.column p + p {
+    text-align: right;
+}
+
+.column p + p strong {
+    display: block;
+    font-weight: 700;
 }
