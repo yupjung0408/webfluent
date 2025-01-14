@@ -101,6 +101,10 @@ body {
     line-height: 1.5; /* lh1.5 */
 }
 
+.btn-menu {
+    display: none;
+}
+
 #footer {
     padding: 5.2rem 0;
     background: #333;

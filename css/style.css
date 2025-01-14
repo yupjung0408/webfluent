@@ -4,6 +4,8 @@
 #main > section {
     padding: 6rem 0;
     /* border: 1px solid #000; */
+
+    padding: clamp(4rem, 3.125vw, 6rem) 0;
 }
 
 /* css 개별성 규칙 
@@ -64,11 +66,15 @@
     transform: translateY(-50%); /* trfty 세로기준 중앙 */
     z-index: 5;
     width: 69rem;
+    width: 58.4746%;
 }
 
 .visual-title h2 {
     font-weight: 700;
     font-size: 4.8rem;
+    font-size: 2.5vw; /* 뷰포트 가로크기를 기준으로 한 단위(vw) */
+    font-size: clamp(3rem, 8vw, 4.8rem); /* clamp(최소값 , 추천값 , 최대값) */
+
     line-height: 1.2;
     color: #fff;
     text-transform: uppercase; /* ttu  */
@@ -87,7 +93,7 @@
     animation: slide-right 0.5s 1.3s both;
 }
 .visual-title a.cta {
-    display: flex;
+    display: inline-flex;
     justify-content: center;
     align-items: center;
     width: 20rem;
@@ -127,6 +133,7 @@
 
 .business-list li {
     width: 28rem;
+    width: 23.7288%;
     min-height: 3.2rem;
     padding: 2.8rem 3.2rem;
     border: 1px solid var(--black20p);
@@ -168,8 +175,14 @@
 
 .works-list li {
     width: 59rem;
+    width: 50%;
     height: 26rem;
     position: relative;
+}
+
+.works-list li figure {
+    width: 100%;
+    height: 100%;
 }
 
 .works-list li p {
@@ -181,6 +194,8 @@
     font-size: 2.4rem;
     color: #fff;
     text-align: center;
+    width: 90%;
+    /* border: 1px solid #000; */
 }
 
 .works-list li p strong {
@@ -196,6 +211,7 @@
 .news-text {
     /* border: 1px solid #000; */
     width: 48rem;
+    width: 40.678%;
 }
 
 .news-text h4 {
@@ -211,6 +227,7 @@
 
 .news-con figure {
     width: 64rem;
+    width: 54.2373%;
 }
 
 .column h4 {
@@ -226,8 +243,10 @@
     margin-top: 1.8rem;
 }
 
-.column p {
+.column h5 + p {
     margin-top: 1.8rem;
+    column-count: 2; /* colc */
+    column-gap: 4rem;
 }
 
 .column p + p {
@@ -237,4 +256,142 @@
 .column p + p strong {
     display: block;
     font-weight: 700;
+}
+
+/* .inner 크기에 맞는 분기점 생성 */
+@media screen and (max-width: 1180px) {
+    .inner {
+        width: 968px;
+        width: 94.5313%;
+    }
+}
+
+/*  태블릿 디자인 */
+@media screen and (max-width: 1024px) {
+    /* .inner {
+        width: 968px;
+        width: 94.5313%;
+    } */
+
+    #header nav {
+        height: 10rem;
+    }
+    .gnb {
+        display: none;
+    }
+    .btn-menu {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 4.8rem;
+        height: 4.8rem;
+        background: url(../img/ico-menu.svg) no-repeat 50%;
+    }
+    .visual {
+        height: 64rem;
+    }
+
+    .visual-title {
+        width: 46rem;
+        width: 47.5207%;
+        left: 8.2rem;
+    }
+
+    .business-list {
+        flex-wrap: wrap;
+    }
+
+    .business-list li {
+        width: 47.4rem;
+        /* width: 48.9669%; */
+        width: calc((100% - 2rem) / 2); /* (가로크기 -gap의 수치 빼주기) / 보여지는 갯수  */
+        min-height: 2.8rem;
+    }
+
+    .news-text {
+        width: 47.4rem;
+        width: 48.9669%;
+    }
+
+    .news-con figure {
+        width: 47.4rem;
+        width: 48.9669%;
+    }
+
+    .column h5 + p {
+        column-count: 1;
+    }
+
+    .column p + p {
+        margin-top: 2rem;
+    }
+}
+
+/* 추가한 중간 분기점 */
+@media screen and (max-width: 900px) {
+    .visual-title {
+        width: 70%;
+    }
+
+    .news-con {
+        /* flex-wrap: wrap; */
+        /* display: block; */
+        flex-direction: column;
+        gap: 2.4rem;
+    }
+
+    .news-text {
+        width: 100%;
+    }
+
+    .news-con figure {
+        width: 100%;
+    }
+}
+
+/* 모바일 디자인 */
+@media screen and (max-width: 600px) {
+    .inner {
+        width: 35rem;
+        width: 89.7436%;
+    }
+
+    .visual {
+        height: 48rem;
+        height: calc(100vh - 10rem);
+    }
+
+    .visual-title {
+        width: 100%;
+        left: 0;
+        text-align: center;
+    }
+
+    .visual-title h2 {
+        font-size: 3rem;
+    }
+
+    .business-list li {
+        width: 100%;
+    }
+
+    .works-list li {
+        width: 100%;
+        /* height: 18rem; */
+        height: initial; /* 초기값 */
+        aspect-ratio: 1/0.5142857142857143;
+    }
+
+    .column h5 {
+        font-size: 2.4rem;
+    }
+
+    .foot-con {
+        flex-direction: column;
+        gap: 2.4rem;
+    }
+
+    .foot-text {
+        text-align: center;
+    }
 }
